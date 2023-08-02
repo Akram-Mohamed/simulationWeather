@@ -1,12 +1,12 @@
   @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,500;1,100&family=Pacifico&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap');
 
 :root{
-    --main-color:#009ad8;
-    --body-color:#1e202b;
-    --hd-card-color:#2d303d;
+    --main-color:#fcc403;
+    --body-color:#080d10;
+    --hd-card-color:#61677A;
     --card-body-color:#323544;
-    --footer-color:#262936;
-    --card-color: #BFC1BF;
+    --footer-color:#0F6292;
+    --card-color: #1a232add;
 }
 body{
     background-color: var(--body-color);
@@ -125,6 +125,7 @@ font-weight: 700;
 
 }
 .card-header{
+    color:var(--main-color);
     background-color: var(--hd-card-color);
     font-size: 1rem;
     line-height:21px;
@@ -197,7 +198,7 @@ font-weight: 700;
  }
 /* card 2 css */
 .col-lg-4:nth-child(2)  .card{
-   background-color: var(--footer-color);
+   background-color: var(--card-color);
    border: none;
    border-radius: unset;
 }
