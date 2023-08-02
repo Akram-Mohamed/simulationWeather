@@ -57,7 +57,7 @@ async function getWeather(city) {
                         //         console.error("Error:", error);
                         //       }
                         
-        let response=await fetch(`http://api.weatherapi.com/v1/forecast.json?key=51228da869164f5eb1a103306233107&q=${city}&days=3`); 
+        let response=await fetch(`https://api.weatherapi.com/v1/forecast.json?key=51228da869164f5eb1a103306233107&q=${city}&days=3`); 
                 response=await response.json();
                 allWeather=  response;
                 //show data from here 
