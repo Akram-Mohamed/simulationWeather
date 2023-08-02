@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather</title>
+    <!-- icon -->
+    <link rel="shortcut icon" href="images/logo@2x.ico" type="image/x-icon">
+    <!--fontawsome  -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- bootstrab -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- main style css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- header -->
+    <header id="header" class="header ">
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container ">
+               
+                    <a class="navbar-brand  d-flex flex-row align-items-center   " href="#">
+                        <img src="images/logo@2x.png" alt="" class="logo" width="64" height="38">
+                        <div class="logo-type  d-flex flex-column">  
+							<h1 class="site-title">Weather</h1>
+							<span class="site-description">tagline goes here</span>
+						</div>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+            
+            
+              <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+                <ul class="navbar-nav  m-auto ">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">News</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Live cameras</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Photos</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                      </li>
+                  
+                  </ul>
+            
+               
+              </div>
+            </div>
+          </nav>
+    </header>
+<!-- Body section --> 
+<section id="body-section" class="body-section ">
+    <div class="inpu-holder position-relative">
+        <div class="search-data">
+            <input id="search-value" class="form-control input rounded-5 position-relative " placeholder="Find your location...." type="text">
+            <button id="search-btn" class="btn btn-info rounded-5  position-absolute">Find</button>
+        </div>
+      </div>
+  <div class="container" >
+        <div id="wether-data" class="row  justify-content-center align-items-center overflow-hidden my-5 w-100 ">
+            <!-- <div class="col-md-4">
+                <div class="card ">
+                    <div class="card-header d-flex flex-row justify-content-between align-items-center">
+                        <span> Sunday </span>
+                        <span>30July</span>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">cairo</h5>
+                      <div class="degree d-flex justify-content-center align-items-center ">
+                          <div class="num">33<sup>o</sup>C</div>
+                          <div class="forecast-icon">
+                              <img src="images/113.png" alt="" width="90">
+                          </div>	
+                      </div>
+                      <p id="weather-status">Sunny</p>
+                      <div class="card-footer ">
+             
+                        <div class="icon-info  d-flex flex-row align-items-center justify-content-center p-1 ">
+                          <span>
+                            <img src="images/icon-umberella.png" alt="">
+                            "20%"
+                          </span>
+                          <span>
+                            <img src="images/icon-wind.png" alt=""> "18km/h"
+                          </span>
+                          <span>
+                            <img src="images/icon-compass.png" alt=""> "East"
+                          </span>
+                        </div>
+                      </div>
+                  </div>
+
+                  </div>
+                  
+            </div>
+
+            <div class="col-md-4">
+              <div class="card ">
+                  <div class="card-header d-flex flex-row justify-content-center align-items-center">
+                      <span> Sunday </span>
+                  </div>
+                  <div class="card-body text-center ">
+                  
+                    <div class="degree d-flex justify-content-center align-items-center  flex-column">
+                      <img src="images/113.png" alt="" width="90">
+                        <div class="Midd-num">33<sup>o</sup>C</div>
+                        <div class="foot-num">33<sup>o</sup>C</div>
+                    
+                    </div>
+                    <p id="weather-status" class="pt-3">Sunny</p>
+                
+                </div>
+
+                </div>
+                
+          </div>
+
+          <div class="col-md-4">
+            <div class="card ">
+              <div class="card-header d-flex flex-row justify-content-center align-items-center">
+                  <span> Sunday </span>
+              </div>
+              <div class="card-body text-center ">
+              
+                <div class="degree d-flex justify-content-center align-items-center  flex-column">
+                  <img src="images/113.png" alt="" width="90">
+                    <div class="Midd-num">33<sup>o</sup>C</div>
+                    <div class="foot-num">33<sup>o</sup>C</div>
+                </div>
+                <p id="weather-status" class="pt-3">Sunny</p>
+              
+            </div>
+
+            </div>
+              
+        </div> -->
+            
+          
+        </div> 
+    </div>
+</section>
+
+<footer id="footer" class="footer ">
+ <div class="container">
+  <div class="row gy-3 align-items-center" >
+    <div class="col-lg-6 col-md-12">
+      <div class="sub-inputs  w-100  position-relative d-flex flex-column  " >
+        <input id="mail-value" class="form-control input rounded-5 " placeholder="Find your location...." type="text">
+        <button id="sub-btn" class="btn btn-info rounded-5 ">subscrib</button>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <div class="social-ico  d-flex flex-row justify-content-center align-text-center">
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-google-plus-g"></i>
+        <i class="fa-brands fa-pinterest"></i>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <p class="lead">Copyright 2014 Company name. Designed by Themezy. All rights reserved</p>
+
+    </div>
+
+  </div>
+ </div>
+   
+
+
+
+</footer>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
