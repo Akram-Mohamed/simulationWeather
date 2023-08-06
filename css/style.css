@@ -132,6 +132,9 @@ font-weight: 700;
     vertical-align:baseline;
     padding:.5rem 1rem;
 }
+.card-body h5{
+    color: var(--main-color);
+}
 .card-body{
     padding: 2rem 1rem;
 }

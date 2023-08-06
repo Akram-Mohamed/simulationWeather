@@ -1,11 +1,9 @@
 'use strict'
-// let SearchingForCity="https://api.weatherapi.com/v1/current.json?key=51228da869164f5eb1a103306233107&q=cairo";
-// let currentWeather=("https://api.weatherapi.com/v1/search.json?key=51228da869164f5eb1a103306233107&q=cairo");
-// let ewather7Days="http://api.weatherapi.com/v1/forecast.json?key=51228da869164f5eb1a103306233107&q=07112&days=3";
-// let x;
+
 //variables
 let currentCity;
-let currentLong,currentLat;
+let currentLong;
+let currentLat;
 let allWeather;
 const date = new Date();
 let searchBtn=document.getElementById('search-btn')
@@ -17,111 +15,63 @@ const currentDay = date.getDate();
 const currentDayName =  days[date.getDay()];
 const currentMonth =  monthNames[date.getMonth()] ;
 let shownData=document.getElementById('wether-data');
+let dayTwo=date.getDay()+1 ,dayThree=date.getDay()+2;
+
+date.getDay()==6 ? (  dayTwo= 0,dayThree =1 ) 
+: date.getDay()==5 ? ( dayThree =0 ) :"";
+
 
 //condition.icon to get image
 //current.temp_c temprature
 //status condition.text 
-
+getLocation();
 if (document.body.contains(searchBtn)) {
-        functionMange() ;
+       // functionMange() ;
+        getLocation();
 }
 
-async function getWeather(city) {
-
-//         fetch(`http://api.weatherapi.com/v1/forecast.json?key=51228da869164f5eb1a103306233107&q=${city}&days=3`)
-//        .then((response) => {
-//                 if (response.ok) {
-//                   return response.json();
-//                 }
-//                 throw new Error('Something went wrong');
-//               })
-//               .then((responseJson) => {
-//                 allWeather=  responseJson;
-//                 displayWeather() ;
-
-//               })
-//               .catch((error) => {
-//                 console.log(error)
-//               });
-                        // try {
-                        //         let response=await fetch(`http://api.weatherapi.com/v1/forecast.json?key=51228da869164f5eb1a103306233107&q=${city}&days=3`); 
-                        //                 response=await response.json();
-                        //                         allWeather=  response;
-                        //                         //show data from here 
-                        //                         if(!response.error&&response.status!=400){
-                        //                                 displayWeather() ;
-                        //                                 }
-                        //         console.log("Success:", allWeather);
-                        //       } 
-                        //       catch (error) {
-                        //         console.error("Error:", error);
-                        //       }
-                        
-        let response=await fetch(`https://api.weatherapi.com/v1/forecast.json?key=51228da869164f5eb1a103306233107&q=${city}&days=3`); 
-                response=await response.json();
-                allWeather=  response;
-                //show data from here 
-                if(!response.error&&response.status!=400){
-                        displayWeather() ;
-                        }
-                        
-        //------------------------------
-
-           
-               
-}
-// get city with lang ang lat
-async function getCity(long,lat) {
-        // let response=await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=XXXXXXXXXXXX&longitude=XXXXXXXXXXXX&localityLanguage=en`);
-               let response=await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${long}&localityLanguage=en`);
-                response=await response.json();
-                currentCity=response.city;
-                 
-   }
-
-   async function functionMange() {
-        await  getLocation();
-        await getCity(currentLong,currentLat);
-        await getWeather(currentCity) ;  
-
-      }
-     
-
-// navigator.geolocation.getCurrentPosition(successCallback, errorCallback); 
-// //success case    
-// const successCallback = (position) => {
-//         currentLong=position.coords.longitude;
-//         currentLat=position.coords.latitude;
-// };
-// //faild case     
-// const errorCallback = (error) => {
-// console.log("Geolocation is not supported by this browser.");
-// console.log(error);
-// };
-        async function getLocation() {
-                if (navigator.geolocation) {
-                  navigator.geolocation.getCurrentPosition(showPosition);
-                } else { 
-                        console.log("Geolocation is not supported by this browser.");
-                
-                }
-
-        }
-        function showPosition(position) {
-                currentLong=position.coords.longitude;
-
-                currentLat=position.coords.latitude;    
-              } 
-
+async function getWeather(currentLong,currentLat) {
       
-         
+        let response=await fetch(`https://api.weatherapi.com/v1/forecast.json?key=51228da869164f5eb1a103306233107&q=${currentLat},${currentLong}&days=3`);  
+                response=await response.json();
+                 allWeather=  response;
+                 //show data from here 
+
+                        if(!response.error && response!=null ){
+                                displayWeather() ;
+                                }   
+                   
+}
 
 
 
+// get city with lang ang lat
+        // async function getCity(long,lat) {
+                        
+        //         let response=await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${long}&localityLanguage=en`);``
+        //                 response=await response.json();
+        //                 currentCity=response.city;        
+        // }
 
 
+//    async function functionMange() {
+//         await  getLocation();
+//         await  getCity(currentLong,currentLat);
+//         await  getLocation(currentCity);
+//       }  
 
+async function getLocation() 
+        {       if (navigator.geolocation) {  navigator.geolocation.getCurrentPosition(showPosition);  }
+                else { console.log("Geolocation is not supported by this browser."); }
+        }
+function showPosition(position) {   
+               currentLong=position.coords.longitude;
+                currentLat=position.coords.latitude; 
 
+                getWeather(currentLong,currentLat);
+        } 
+
+// display function is here----------------------------
  function displayWeather() {
       let box="";
 
@@ -198,7 +148,6 @@ async function getCity(long,lat) {
                         </div>
                   
                 </div>
-                
                 `
                 shownData.innerHTML=box;
         } else {
@@ -207,30 +156,19 @@ async function getCity(long,lat) {
       
       }
 
-// searching function
-if (document.body.contains(searchBtn)) {
-        searchBtn.addEventListener('click',function () {
-                
-                searchWeather();
-        })    
-}
-if (document.body.contains(searchValue)) {
-        searchValue.addEventListener('input',function () {
-                getWeather(searchValue.value) ;     
-        })
-        
-
-}
-
-function searchWeather() {
-        getWeather(searchValue.value) ;   
-
-}
-
+// searching function events 
+if (document.body.contains(searchBtn)) {   searchBtn.addEventListener('click',function () { searchWeather();  })    }
+if (document.body.contains(searchValue)) { searchValue.addEventListener('input',function () {  searchWeather();   })}
+//main search function
+function searchWeather() {  
+     
+        searchValue.value=="" ?  getLocation() :getWeather(searchValue.value)  ;
+          
+           }
+//media querry chamges
 if (window.innerWidth<=991) {
         document.querySelector('.navbar-toggler').style.backgroundColor='var(--main-color)';
         document.querySelector('.navbar-toggler-icon').style.backgroundImage="none";
         document.querySelector('.navbar-toggler-icon').classList.add('text-center');
         document.querySelector('.navbar-toggler-icon').innerHTML=`<i class="fa-solid fa-bars mt-1" style="color: #ffffff;"></i>`;
-
 } 
